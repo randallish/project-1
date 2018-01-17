@@ -1,13 +1,14 @@
 
 // global variables
-var apiKey = "a5c09d2dbe71875e792a7dbe0771b30f&q=";
-var queryURL = "http://food2fork.com/api/search?key=";
+var apiKey = "a5c09d2dbe71875e792a7dbe0771b30f&rId=";
+var queryURL = "http://food2fork.com/api/get?key=";
 var input = [];
 var count = "&count=1";
 
-var yelpKey = "UekWtwsdSdChv7BPj0qe5Koex2GpQ_eO4MkJJIJYyPst0QClEqU5szdU60hG5Vav-qMNnEATvZBHF2z7txq0P6wSAAafOWzLqT2EJrm0I8yRhXPEDXAON_XWAVVeWnYx"
-var yelpURL = "https://api.yelp.com/v3/businesses/search?key=";
+var yelpKey = "UekWtwsdSdChv7BPj0qe5Koex2GpQ_eO4MkJJIJYyPst0QClEqU5szdU60hG5Vav-qMNnEATvZBHF2z7txq0P6wSAAafOWzLqT2EJrm0I8yRhXPEDXAON_XWAVVeWnYx";
+var yelpURL = "https://api.yelp.com/v3/businesses/search?location=";
 var limit = "&limit=10";
+var yelp = [];
 
 $("#search").on("click",function(event) {
     event.preventDefault();
@@ -27,6 +28,16 @@ $("#search").on("click",function(event) {
 });
 
 
+$("#yelp-search").on("click",function(event) {
+    event.preventDefault();
+    var yelpSearch = $("#yelp-input").val().trim();
+    yelp.push(yelpSearch);
+    console.log(yelp);
+    getRestaurant();
+
+});
+
+
 function getRecipe() {
     var newURL = queryURL + apiKey + input + count;
 
@@ -38,24 +49,26 @@ function getRecipe() {
       .done(function(response) {
           console.log(newURL);
           console.log(response);
-          console.log(response.recipes[0]);
+          console.log(response.recipe[0]);
 
-          var recipeTitle = $("<h1>").text(response.recipes[0].title);
-          var recipeLink = $("<a>").attr("href", response.recipes[0].f2f_url).append(recipeTitle);
-          var recipeImage = $("<img>").attr("src", response.recipes[0].image_url);
+          var recipeTitle = $("<h1>").text(response.recipe.title);
+          var recipeLink = $("<a>").attr("href", response.recipe.f2f_url).append(recipeTitle);
+          var recipeImage = $("<img>").attr("src", response.recipe.image_url);
+          var ingredients = $("<ol>").text(response.recipe.ingredients);
 
-          $("#recipe").append(recipeLink, recipeImage);
+          $("#recipe").append(recipeLink, recipeImage,ingredients);
       });
     };
 
 
     function getRestaurant() {
-        var newURL2 = yelpURL + yelpKey + input + limit;
+        var newURL2 = yelpURL + yelp + limit;
 
         $.ajax({
             url: yelpURL,
             method: "GET",
-            Authorization: "Bearer<yelpKey>"
+            dataType: "json",
+            headers: {'Authorization':+ "Bearer UekWtwsdSdChv7BPj0qe5Koex2GpQ_eO4MkJJIJYyPst0QClEqU5szdU60hG5Vav-qMNnEATvZBHF2z7txq0P6wSAAafOWzLqT2EJrm0I8yRhXPEDXAON_XWAVVeWnYx"}
         })
         .done(function(data) {
             console.log(data);
