@@ -6,8 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Food App</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css"/>
     <link rel="stylesheet" href="./assets/css/style.css"> 
 </head>
 <body>
@@ -21,8 +19,8 @@
 
     <div class="container">
       <div class="row">
-        <div id='recipe'></div>
-        <form>
+        <div class="col-sm" id="box">
+         <form id="search_bars">
             <p class="search_label"> "recipe search" </p>
             <div id="search-bar">
                 <input type="text" id="search-input" type="search" placeholder="search">
@@ -40,16 +38,29 @@
                 </div>
             </div>
         </form>
+        <div class="col-sm" id="box2">
+            <div id='recipe'></div>
+
+            <div id="images-recipe">
+             RECIPE IMAGE HERE
+         </div>
+
+         <div id="ingredients">
+            <ul>ingredients</ul>
+        </div>
+    </div>
+</div>
+</div>
 
 
-<div id="firebaseui-auth-container"></div>
-<div id="loader">Loading...</div>
+<div class="fixed-bottom"></div>
+<div class="fixed-bottom" id="footer"> <img id="yelp_img" src="./assets/css/yelp.png"></img></div> 
 
-        <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
-        <script
-        src="https://code.jquery.com/jquery-3.2.1.min.js"    
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>  
-        <script type="text/javascript" src="./assets/javascript/main.js"></script>
-    </body>
-    </html>
+
+<script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"    
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>  
+<script type="text/javascript" src="./assets/javascript/main.js"></script>
+</body>
+</html>

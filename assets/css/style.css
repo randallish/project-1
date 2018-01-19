@@ -9,6 +9,7 @@ body {
 	background: grey;
 }
 #search-bar {
+	margin-left: 50px;
 }
 #search-input { 
     background-color: white;
@@ -27,10 +28,47 @@ body {
 .search_label {
 	color: white;
 	font-size: 20px;
+	margin-left: 50px;
+
 }
 #search {
 	margin-left: 150px;
+	margin-bottom: 50px;
 }
-#search_bars {
+.container {
+	text-align: center;
+	display: block;
+}
+#yelp-search {
+	margin-left: 50px;
+}
+#images-recipe {
+	text-align: center;
 
+}
+#box {
+	display: block;
+	width: 25%;
+	float: left;
+}
+#box2 {
+	display: block;
+}
+#images-recipe {
+	text-align: left;
+	height: 150px;
+	width: 150px;
+}
+#ingredients {
+	text-align: right;
+}
+#yelp_img {
+	height: 60px;
+	width: 40%;
+}
+#footer {
+	height:60px;
+}
+.fixed-bottom {
+	position: center;
 }
