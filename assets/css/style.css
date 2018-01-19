@@ -1,8 +1,36 @@
+/* @font-face {
+    font-family: 'pizza_font';
+    src: url('hotpizza-webfont.woff2') format('woff2'),
+         url('hotpizza-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+} */
+body {
+	background: grey;
+}
+#search-bar {
+}
 #search-input { 
-    margin-left: 200px;
-    background-color: green;
+    background-color: white;
+    margin-bottom: 50px;
 }
 
 #search-button {
     margin-top:50px;
+}
+#title {
+	font-family: 'pizza_font';
+	color: white;
+	font-size: 60px;
+	text-align: center;
+}
+.search_label {
+	color: white;
+	font-size: 20px;
+}
+#search {
+	margin-left: 150px;
+}
+#search_bars {
+
 }

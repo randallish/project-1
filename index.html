@@ -5,29 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Food App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css"> 
 </head>
 <body>
-    <div id='recipe'></div>
-    <form>  
-        <div id="search-bar">
-        <input type="text" id="search-input" type="search" placeholder="search">
-        </div>
-        <div id="yelp-bar">
-        <input type="text" id="yelp-input" type="search" placeholder="search">
-        </div>
-        <div id="search-button">
-        <button id="search" type="submit">Feeling Adventurous?</button>
-        </div>
-        <div id="yelp-button">
-        <button id="yelp-search" type="submit"> Feeling lazy?</button>
-        </div>
-    </form>
 
-<script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"    
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>  
-<script type="text/javascript" src="./assets/javascript/main.js"></script>
-</body>
-</html>
+    <div id="top_div">
+        <h1 id="title">"TITLE HERE" </h1>
+    </div>
+
+
+    <div id="yelp-images"></div>
+
+    <div class="container">
+      <div class="row">
+        <div id='recipe'></div>
+        <form>
+            <p class="search_label"> "recipe search" </p>
+            <div id="search-bar">
+                <input type="text" id="search-input" type="search" placeholder="search">
+            </div>
+            <p class="search_label"> "restaurants search" </p>
+            <div id="yelp-bar">
+                <input type="text" id="yelp-input" type="search" placeholder="search">
+            </div>
+            <div id="search_bars">
+                <div id="search-button">
+                    <button id="search" type="submit">Feeling Adventurous?</button>
+                </div>
+                <div id="yelp-button">
+                    <button id="yelp-search" type="submit"> Feeling lazy?</button>
+                </div>
+            </div>
+        </form>
+
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"    
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>  
+        <script type="text/javascript" src="./assets/javascript/main.js"></script>
+    </body>
+    </html>
