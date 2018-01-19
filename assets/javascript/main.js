@@ -1,14 +1,41 @@
 
-// global variables
-// var apiKey = "a5c09d2dbe71875e792a7dbe0771b30f&rId=";
-// var queryURL = "http://food2fork.com/api/get?key=";
 
+var config = {
+  apiKey: "AIzaSyAbveEsJJYzFrleIyMUl-hV9ilXMpuYurg",
+  authDomain: "food-project-1fdbb.firebaseapp.com",
+  databaseURL: "https://food-project-1fdbb.firebaseio.com",
+  projectId: "food-project-1fdbb",
+  storageBucket: "food-project-1fdbb.appspot.com",
+  messagingSenderId: "389102904783"
+};
+  firebase.initializeApp(config);
 
-var yelpURL = "https://api.yelp.com/v3/businesses/search?api-key=UekWtwsdSdChv7BPj0qe5Koex2GpQ_eO4MkJJIJYyPst0QClEqU5szdU60hG5Vav-qMNnEATvZBHF2z7txq0P6wSAAafOWzLqT2EJrm0I8yRhXPEDXAON_XWAVVeWnYx&location=";
-var yelp = []
+  var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
-var input = [];
-var count = "&count=1";
+    var uiConfig = {
+    callbacks: {
+      signInSuccess: function(currentUser, credential, redirectUrl) {
+        // User successfully signed in.
+        // Return type determines whether we continue the redirect automatically
+        // or whether we leave that to developer to handle.
+        return true;
+      },
+      uiShown: function() {
+        // The widget is rendered.
+        // Hide the loader.
+        document.getElementById('loader').style.display = 'none';
+      }
+    },
+    // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+    signInFlow: 'popup',
+    signInSuccessUrl: '<url-to-redirect-to-on-success>',
+    signInOptions: [
+      // Leave the lines as is for the providers you want to offer your users.
+      firebase.auth.EmailAuthProvider.PROVIDER_ID,
+    ],
+    // Terms of service url.
+    tosUrl: '<your-tos-url>'
+  };
 
 
 $("#search").on("click",function(event) {
@@ -20,11 +47,6 @@ $("#search").on("click",function(event) {
     // resetting input to blank value
     $("#search-input").val('');
 
-    // calling ajax
-    // getRecipe();
-    
-    // removing element from array after its searched
-    input.splice(0,1);
     console.log(input);
 });
 
@@ -32,8 +54,6 @@ $("#search").on("click",function(event) {
 $("#yelp-search").on("click",function(event) {
     event.preventDefault();
     var yelpSearch = $("#yelp-input").val().trim();
-    yelp.push(yelpSearch);
-    console.log(yelp);
     getYelp(yelpSearch);
     $("#yelp-input").val('');
     hideButtons();
@@ -68,15 +88,19 @@ function hideButtons() {
                 var rating = data[i].rating;
                 var name = data[i].name;
                 var location = data[i].location.address1;
+                var distance = data[i].distance;
                 console.log(rating);
                 console.log(price);
                 console.log(name);
                 console.log(location);
+                console.log(distance);
 
                 image.attr("src", data[i].image_url);
 
-                yelpDiv.append(name,image,rating,price,location);
+                yelpDiv.append(name,image,rating,price,location,distance);
                 $("#yelp-images").append(yelpDiv);
             }
         });
     }
+    ui.start('#firebaseui-auth-container', uiConfig);
+
