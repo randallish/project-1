@@ -12,7 +12,7 @@ var config = {
 
   var database = firebase.database();
 
-  $("#login_in_btn").on("click",function(event){
+  $("#login_in_btn2").on("click",function(event){
     var userEmail = $("#input_email").val().trim();
     var userPassword = $("#input_password").val().trim();
     var auth = firebase.auth();

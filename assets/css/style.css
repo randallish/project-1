@@ -98,3 +98,15 @@ body {
 #confirm_pass {
 	margin-top: 10px;
 }
+#login_btn2 {
+	background: #ED1C24;
+	font-weight: bold;
+	color: white;
+}
+#sign_up_btn2 {
+	background: #ED1C24;
+	margin-right: 40px;
+	font-weight: bold;
+	color: white;
+}
+
