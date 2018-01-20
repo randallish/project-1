@@ -12,9 +12,9 @@ var config = {
 
   var database = firebase.database();
 
-  $("#sign-in").on("click",function(event){
-    var userEmail = $("#email").val().trim();
-    var userPassword = $("#password").val().trim();
+  $("#login_in_btn2").on("click",function(event){
+    var userEmail = $("#input_email").val().trim();
+    var userPassword = $("#input_password").val().trim();
     var auth = firebase.auth();
 
 
@@ -24,9 +24,9 @@ var config = {
       console.log("Error Message: " + errorMessage);
 
 
+
     });
   });
-
 
 $("#search").on("click",function(event) {
     event.preventDefault();
