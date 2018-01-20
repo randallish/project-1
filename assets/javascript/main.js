@@ -10,7 +10,7 @@ var config = {
 };
   firebase.initializeApp(config);
 
-
+  var database = firebase.database();
 
   $("#sign-in").on("click",function(event){
     var userEmail = $("#email").val().trim();
@@ -19,6 +19,10 @@ var config = {
 
 
     auth.signInWithEmailAndPassword(userEmail, userPassword).catch(function(error) {
+      var errorCode  = error.code;
+      var errorMessage = error.message;
+      console.log("Error Message: " + errorMessage);
+
 
     });
   });
