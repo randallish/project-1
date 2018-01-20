@@ -6,7 +6,7 @@
     font-style: normal;
 } */
 body {
-	background: grey;
+	background: white;
 }
 #search-bar {
 	margin-left: 50px;
@@ -82,9 +82,13 @@ body {
 	text-align: center;
 }
 #sign_up_btn {
-	background: white;
+	background: #ED1C24;
 	margin-right: 40px;
+	font-weight: bold;
+	color: white;
 }
 #sign_in_btn {
-	background: white;
+	background: #ED1C24;
+	font-weight: bold;
+	color: white;
 }
