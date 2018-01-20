@@ -72,3 +72,19 @@ body {
 .fixed-bottom {
 	position: center;
 }
+#icon_div {
+	text-align: center;
+}
+#logo {
+	text-align: center;
+}
+#login_btns {
+	text-align: center;
+}
+#sign_up_btn {
+	background: white;
+	margin-right: 40px;
+}
+#sign_in_btn {
+	background: white;
+}
