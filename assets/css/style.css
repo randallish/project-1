@@ -92,3 +92,12 @@ body {
 	font-weight: bold;
 	color: white;
 }
+.login_form {
+	margin: auto;
+	width: 30%;
+}
+#login_btn {
+	background: #ED1C24;
+	font-weight: bold;
+	color: white;
+}
