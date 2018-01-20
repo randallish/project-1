@@ -19,14 +19,8 @@ body {
 #search-button {
     margin-top:50px;
 }
-#title {
-	font-family: 'pizza_font';
-	color: white;
-	font-size: 60px;
-	text-align: center;
-}
+
 .search_label {
-	color: white;
 	font-size: 20px;
 	margin-left: 50px;
 
@@ -101,3 +95,18 @@ body {
 	font-weight: bold;
 	color: white;
 }
+#confirm_pass {
+	margin-top: 10px;
+}
+#login_btn2 {
+	background: #ED1C24;
+	font-weight: bold;
+	color: white;
+}
+#sign_up_btn2 {
+	background: #ED1C24;
+	margin-right: 40px;
+	font-weight: bold;
+	color: white;
+}
+
