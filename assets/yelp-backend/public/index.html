@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Food App</title>
+    <link rel="stylesheet" href="./assets/css/style.css"> 
+</head>
+<body>
+    <div id='recipe'></div>
+    <form>  
+        <div id="search-bar">
+        <input type="text" id="search-input" type="search" placeholder="search">
+        </div>
+        <div id="zomato-bar">
+        <input type="text" id="zomato-input" type="search" placeholder="search">
+        </div>
+        <div id="search-button">
+        <button id="search" type="submit">Feeling Adventurous?</button>
+        </div>
+        <div id="zomato-button">
+        <button id="zomato-search" type="submit"> Feeling lazy?</button>
+        </div>
+    </form>
+
+<script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"    
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>  
+<!-- <script type="text/javascript" src="./assets/javascript/main.js"></script> -->
+<script>
+
+// global variables
+// var apiKey = "a5c09d2dbe71875e792a7dbe0771b30f&rId=";
+// var queryURL = "http://food2fork.com/api/get?key=";
+
+
+var yelpURL = "https://api.yelp.com/v3/businesses/search?api-key=UekWtwsdSdChv7BPj0qe5Koex2GpQ_eO4MkJJIJYyPst0QClEqU5szdU60hG5Vav-qMNnEATvZBHF2z7txq0P6wSAAafOWzLqT2EJrm0I8yRhXPEDXAON_XWAVVeWnYx&location=";
+var yelp = []
+
+var input = [];
+var count = "&count=1";
+
+var zomatoKey = "6adcc30bd37f9f3afeb888c491d64169&q=";
+var zomatoURL = "https://developers.zomato.com/api/v2.1/search?user-key=";
+var limit = "&limit=10";
+var zomato = [];
+
+$("#search").on("click",function(event) {
+    event.preventDefault();
+    // storing the search input
+    var search = $("#search-input").val().trim();
+    input.push(search);
+    console.log(input);
+    // resetting input to blank value
+    $("#search-input").val('');
+
+    // calling ajax
+    // getRecipe();
+    
+    // removing element from array after its searched
+    input.splice(0,1);
+    console.log(input);
+});
+
+
+$("#zomato-search").on("click",function(event) {
+    event.preventDefault();
+    var yelpSearch = $("#zomato-input").val().trim();
+    yelp.push(yelpSearch);
+    console.log(yelp);
+    getYelp(yelpSearch);
+    zomato.splice(0,1);
+
+
+});
+
+
+function getRecipe() {
+    var newURL = queryURL + apiKey + input + count;
+
+    $.ajax({
+        url:newURL,
+        method: "GET",
+        dataType: "json",
+      })
+      .done(function(response) {
+          console.log(newURL);
+          console.log(response);
+          console.log(response.recipes[0]);
+
+          var recipeTitle = $("<h1>").text(response.recipes[0].title);
+          var recipeLink = $("<a>").attr("href", response.recipes[0].f2f_url).append(recipeTitle);
+          var recipeImage = $("<img>").attr("src", response.recipes[0].image_url);
+        //   var ingredients = $("<ol>").text(response.recipe.ingredients);
+
+          $("#recipe").append(recipeLink, recipeImage);
+      });
+    };
+
+
+    function getRestaurant() {
+        var newURL2 = zomatoURL + zomatoKey + zomato + limit;
+
+        $.ajax({
+            url: newURL2,
+            method: "GET",
+            dataType: "json",
+        })
+        .done(function(response) {
+            console.log(newURL2);
+            console.log(response);
+        });
+    };
+        
+
+    function getYelp(searchTerm) {
+        // var yelpApi = yelpURL + yelp;
+        var queryObj = {
+            url: '/api/yelp?location=' + searchTerm.split(' ').join('+'),
+            method: 'GET'
+        }
+        console.log(queryObj);
+        $.ajax(queryObj)
+          .done(function(response) {
+            console.log(response);
+        });
+    }
+</script>
+</body>
+</html>
