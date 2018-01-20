@@ -6,7 +6,7 @@
     font-style: normal;
 } */
 body {
-	background: grey;
+	background: white;
 }
 #search-bar {
 	margin-left: 50px;
@@ -71,4 +71,24 @@ body {
 }
 .fixed-bottom {
 	position: center;
+}
+#icon_div {
+	text-align: center;
+}
+#logo {
+	text-align: center;
+}
+#login_btns {
+	text-align: center;
+}
+#sign_up_btn {
+	background: #ED1C24;
+	margin-right: 40px;
+	font-weight: bold;
+	color: white;
+}
+#sign_in_btn {
+	background: #ED1C24;
+	font-weight: bold;
+	color: white;
 }
