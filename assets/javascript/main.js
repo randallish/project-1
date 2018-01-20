@@ -32,7 +32,6 @@ $("#search").on("click",function(event) {
     event.preventDefault();
     // storing the search input
     var search = $("#search-input").val().trim();
-    input.push(search);
     console.log(input);
     // resetting input to blank value
     $("#search-input").val('');
@@ -57,39 +56,4 @@ function hideButtons() {
 }
 
 
-    function getYelp(searchTerm) {
-        // var yelpApi = yelpURL + yelp;
-        var queryObj = {
-            url: 'http://localhost:3000/api/yelp?location=' + searchTerm.split(' ').join('+'),
-            method: 'GET',
-            dataType: 'json'
-        }
-        console.log(queryObj);
-        $.ajax(queryObj)
-          .done(function(response) {
-            console.log(response);
-            console.log(response.businesses);
-            var data = response.businesses;
-
-            for (var i = 15; i < data.length; i++) {
-                var yelpDiv = $("<div>");
-                var image = $("<img>");
-                var price = data[i].price;
-                var rating = data[i].rating;
-                var name = data[i].name;
-                var location = data[i].location.address1;
-                var distance = data[i].distance;
-                console.log(rating);
-                console.log(price);
-                console.log(name);
-                console.log(location);
-                console.log(distance);
-
-                image.attr("src", data[i].image_url);
-
-                yelpDiv.append(name,image,rating,price,location,distance);
-                $("#yelp-images").append(yelpDiv);
-            }
-        });
-    }
-
+   
