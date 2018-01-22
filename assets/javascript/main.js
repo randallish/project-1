@@ -49,6 +49,29 @@ var config = {
     })
 });
 
+
+$("#login_btn_2").on("click",function(){ 
+    userEmail = $("#input_email").val().trim();
+    userPassword = $("#input_password").val().trim();
+
+    auth.signInWithEmailAndPassword(userEmail, userPassword).catch(function(error){
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log("Problem: " + errorCode + " Message: " +errorMessage);
+	}).then(function(success){
+        console.log("Logged In", success);
+    });
+});
+
+$("#signout-button").on("click",function() {
+    firebase.auth().signOut().then(function() {
+        console.log('Signed Out');
+      }, function(error) {
+        console.error('Sign Out Error', error);
+      });
+});
+
+
 // checking password and email restrictions
 function userValidation() {
 
