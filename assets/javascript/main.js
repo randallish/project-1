@@ -20,6 +20,7 @@ var config = {
   var zomatoSearch = '';
   var zomatoKey = "0773a4de72d921649a1fca4f24d04bce";
 
+  // email/password variables
   var userEmail = "";
   var userPassword = "";
   var confirmPassword = "";
@@ -33,42 +34,59 @@ var config = {
     confirmPassword = $("#confirm_password").val().trim();
     var auth = firebase.auth();
 
-
+    // creating a new user with firebase method
     auth.createUserWithEmailAndPassword(userEmail, userPassword).catch(function(error) {
+        // handling of any errors being processed
       var errorCode  = error.code;
       var errorMessage = error.message;
       console.log("Error Message: " + errorMessage);
       console.log("Error code: " + errorCode);
     
+      // calling for password/email validation
       userValidation();
 
-    //   database.ref().push({
-    //       email: userEmail,
-    //       password: userPassword
-    //   });
     })
 });
 
 
-$("#login_btn_2").on("click",function(){ 
+$("#login_btn2").on("click",function(event){ 
+    event.preventDefault();
     userEmail = $("#input_email").val().trim();
     userPassword = $("#input_password").val().trim();
 
+    var auth = firebase.auth();
+    // signing in a registered user
     auth.signInWithEmailAndPassword(userEmail, userPassword).catch(function(error){
         var errorCode = error.code;
         var errorMessage = error.message;
         console.log("Problem: " + errorCode + " Message: " +errorMessage);
 	}).then(function(success){
         console.log("Logged In", success);
+        userValidation();
+
+        if (userEmail){
+        window.location.href="./index.html";
+        }
+        else {
+            return false;
+        }
     });
+    $("#user-name").append(userEmail);
+
 });
 
+// signing out a user
 $("#signout-button").on("click",function() {
+
+    // confirming signout with a modal
+    $("#modal1").modal();
+
     firebase.auth().signOut().then(function() {
         console.log('Signed Out');
       }, function(error) {
         console.error('Sign Out Error', error);
       });
+
 });
 
 
@@ -103,20 +121,21 @@ function userValidation() {
     };
 
 
-//
-// var ingredientsURL = "http://food2fork.com/api/get?key=a5c09d2dbe71875e792a7dbe0771b30f&rId=" + ingredientInput;
-// var ingredientInput = [];
-// on click function
 $("#search").on("click",function(event) {
     event.preventDefault();
     // storing the search input
     search = $("#search-input").val().trim();
+
     // resetting input to blank value
     $("#search-input").val('');
+
     // calling ajax
     getRecipe();
-    // removing element from array after its searched
 });
+
+
+
+
 function getRecipe() {
     var newURL = queryURL + apiKey + search + count;
     $.ajax({
@@ -142,11 +161,11 @@ function getRecipe() {
 
 
 
-$("#yelp-search").on("click",function(event) {
+$("#zomato-search").on("click",function(event) {
     event.preventDefault();
-    zomatoSearch = $("#yelp-input").val().trim();
+    zomatoSearch = $("#zomato-input").val().trim();
     getZomato();
-    $("#yelp-input").val('');
+    $("#zomato-input").val('');
     hideButtons();
 });
 
@@ -167,8 +186,8 @@ function getZomato() {
 };
 
 function hideButtons() {
-    $("#yelp-search").hide();
-    $("#yelp-input").hide();
+    $("#zomato-search").hide();
+    $("zomato-input").hide();
     $("#search").hide();
     $("#search-input").hide();
 }
