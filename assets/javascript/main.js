@@ -1,4 +1,4 @@
-
+console.log('linked');
 // initialize firebase
 var config = {
   apiKey: "AIzaSyAbveEsJJYzFrleIyMUl-hV9ilXMpuYurg",
@@ -135,46 +135,23 @@ $("#search").on("click",function(event) {
 
 function getRecipe() {
     var newURL = queryURL + apiKey + search + count;
+    console.log(newURL);
     $.ajax({
         url:newURL,
         method: "GET",
         dataType: "json"
       })
       .done(function(response) {
+          console.log(response);
           var recipe = response.recipes;
           var randomRecipe = recipe[Math.floor(Math.random() * recipe.length)];
-          console.log(randomRecipe)
-<<<<<<< HEAD
-<<<<<<< HEAD
-          var recipeFrame1 = $("<iframe>").attr("src", response.recipes[0].source_url);
-          var recipeFrame2 = $("<iframe>").attr("src", response.recipes[1].source_url);
-          var recipeFrame3 = $("<iframe>").attr("src", response.recipes[2].source_url);
-          $("#option1").html(recipeFrame1);
-          $("#option2").html(recipeFrame2);
-          $("#option3").html(recipeFrame3);
-          console.log(response);
-          // }
-=======
-          for (i=0; i<3; i++) {
-              var recipeTitle = $("<h1>").text(response.recipes[i].title);
-              var recipeLink = $("<a>").attr("href", response.recipes[i].f2f_url).append(recipeTitle);
-              var recipeImage = $("<img>").attr("src", response.recipes[i].image_url);
-              var ingredients = $("<ol>").text(response.recipes[i].ingredients);
-              var recipeFrame = $("<iframe>").attr("src", response.recipes[i].source_url);
-              $("#recipe").append(recipeTitle, recipeLink, recipeImage, ingredients, recipeFrame);
-              console.log(response);
-          }
->>>>>>> parent of 793b350... create dropdown menu
-=======
+          console.log(randomRecipe);
           var recipeFrame1 = $("<iframe>").attr("src", response.recipes[1].source_url);
-          var recipeFrame2 = $("<iframe>").attr("src", response.recipes[1].source_url);
-          var recipeFrame3 = $("<iframe>").attr("src", response.recipes[2].source_url);
+          var recipeFrame2 = $("<iframe>").attr("src", response.recipes[2].source_url);
+          var recipeFrame3 = $("<iframe>").attr("src", response.recipes[3].source_url);
           $("#option1").append(recipeFrame1);
           $("#option2").append(recipeFrame2);
           $("#option3").append(recipeFrame3);
-          console.log(response);
-          // }
->>>>>>> 793b350... create dropdown menu
       });
     };
 
