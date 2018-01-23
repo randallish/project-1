@@ -13,9 +13,12 @@ body {
 }
 #search-input {
     background-color: white;
-    margin-bottom: 50px;
+	width: 350px;
+	margin-left: 20%;
 }
-
+h1 {
+	margin-left: 20%;
+}
 #search-button {
     margin-top:50px;
 }
@@ -28,6 +31,7 @@ body {
 #search {
 	margin-left: 150px;
 	margin-bottom: 50px;
+	margin-left: 20%;
 }
 .container {
 	text-align: center;
@@ -113,4 +117,14 @@ body {
 iframe {
 	width: 800px;
 	height: 800px;
+}
+#imagepara {
+	height: 800px;
+	width: 800px;
+}
+.parallax-container {
+  	height: 400px;
+}
+#collapse {
+	margin-left: 20%;
 }

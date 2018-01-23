@@ -46,7 +46,8 @@ var config = {
 
     })
 });
-
+//paralax
+$('.parallax').parallax();
 
 $("#login_btn2").on("click",function(event){
     event.preventDefault();
