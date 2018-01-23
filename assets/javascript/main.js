@@ -179,7 +179,7 @@ function getZomato() {
         console.log(response);
         console.log(zomatoURL);
         $('#zomatolist').attr("src", response.restaurants[0].restaurant.photos_url);
-        $('#zomatolist').prepend(response.restaurants[0].restaurant.location.address + "<br>");
+        $('#zomatolist').append(response.restaurants[0].restaurant.location.address + "<br>");
         $('#zomatolist').append(response.restaurants[0].restaurant.location.city + "<br>");
         $('#zomatolist').append(response.restaurants[0].restaurant.location.zipcode);
         $("#zomatolist").prepend(response.restaurants[0].restaurant.name + "<br>");
