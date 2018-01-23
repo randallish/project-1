@@ -134,3 +134,8 @@ iframe {
 	height: 250px;
 	padding-bottom: 2%;
 }
+#footer {
+	text-align: center;
+	background: #ED1C24
+	color: white;
+}
