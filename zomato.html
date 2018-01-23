@@ -1,6 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Food</title>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css"> 
+</head>
+<body>
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+          <a class="nav-link active" href="new.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="zomato.html">Feeling Lazy</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="food2fork.html">Feeling Adventurous</a>
+      </li>
+</ul>
+    <div id="logofood2fork">
+        <img id="logofood" src="assets/images/foodiciouslogo.png">
+    </div>
+    <div class="parallax-container">
+        <center>
+       <div class="parallax"><img id="imagepara" src="http://www.chicagosplash.com/wp-content/uploads/2017/12/BONE-7139_1200px.jpg"></div>
+         </div>
+             <div class="section white">
+               <div class="row container">
+                   <h1>Looking for a place to eat?</h1>
+                   <div id="zomato-bar">
+                       <input type="text" id="zomato-input" type="search" placeholder="search">
+                   </div>
+                   <div id="zomato-button">
+                         <button id="zomato-search" class="btn waves-effect waves-light" type="submit" name="action">Find Restaurants
+                             <i class="large material-icons right">local_pizza</i>
+                        </button>
+                        <div id="zomatolist"></div>
+                    </div>
+                   </div>
+               </div>
+             </div>
+         <div class="parallax-container">
+       <div class="parallax"><img src="http://thewallpaper.co/wp-content/uploads/2016/03/superb-seaside-restaurant-full-hd-wallpaper-for-desktop-background-download-restaurant-pictures-free-download-wallpaper-amazing-wallpapers-widescreen-1920x1080.jpg"></div>
+   </center>
+ </div>
+
+
+
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="./assets/javascript/main.js"></script>
+</body>
+</html>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
