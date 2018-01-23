@@ -1,101 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Food</title>
-    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/style.css"> 
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>LOGIN</title>
+	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="stylesheet" href="./assets/css/style.css"> 
 </head>
-<body>
 
-    <div id="logo">
-        <img src="./assets/images/foodiciouslogo.png"></img>
-    </div>
+	<body>
 
-
-    <div id="user-name"></div>
-
-    <div id="yelp-images"></div>
-
-    <div class="container" id="search-container">
-      <div class="row">
-        <div class="col-sm" id="box">
-         <form id="search_bars">
-            <p class="search_label"> Get creative!</p>
-            <div id="search-bar">
-                <input type="text" id="search-input" type="search" placeholder="search">
-            </div>
-            <p class="search_label">Looking for a place to eat? </p>
-            <div id="zomato-bar">
-                <input type="text" id="zomato-input" type="search" placeholder="search">
-            </div>
-            <div id="search_bars">
-                <div id="search-button">
-                        <button id="search" class="btn waves-effect waves-light" type="submit" name="action">Find Recipes
-                                <i class="large material-icons right">local_dining</i>                </div>
-                <div id="zomato-button">
-                        <button id="zomato-search" class="btn waves-effect waves-light" type="submit" name="action">Find Restaurants
-                                <i class="large material-icons right">local_pizza</i>
-                              </button>                </div>
-            </div>
-        </form>
-
-        <div id="logout">
-                <button data-target="modal1"  id="signout-button" class="btn modal-trigger red">Sign Out</button>
-                <div id="modal1" class="modal">
-                        <div class="modal-content">
-                          <p>Are you sure you want to logout?</p>
-                        </div>
-                        <div class="modal-footer">
-                          <a href="./login.html" class="modal-action modal-close waves-effect waves-green btn-flat">Yes</a>
-                          <a href="./index.html" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                        </div>
-                      </div>
-
-        <div class="col-sm" id="box2">
-            <div id="images-recipe">
-             RECIPE IMAGE HERE
-         </div>
-
-         <div id="ingredients">
-            <ul>ingredients</ul>
-        </div>
-    </div>
-
-<!-- collapsible -->
-        <div id="zomato">
-            <ul class="collapsible" data-collapsible="accordion">
-              <li>
-                <div class="collapsible-header"><i class="material-icons"></i>Option #1</div>
-                <div class="collapsible-body" id="option1"><span></span></div>
-              </li>
-              <li>
-                <div class="collapsible-header"><i class="material-icons"></i>Option #2</div>
-                <div class="collapsible-body" id="option2"><span></span></div>
-              </li>
-              <li>
-                <div class="collapsible-header"><i class="material-icons"></i>Option #3</div>
-                <div class="collapsible-body" id="option3"><span></span></div>
-              </li>
-            </ul>
-        </div>
-</div>
-</div>
+		<div id="logo">
+			<img src="./assets/images/foodiciouslogo.png"></img>
+		</div>
 
 
-<div class="fixed-bottom"></div>
-<div class="fixed-bottom" id="footer">Copyright © Nick Weber, Randall Ishino, David Kim, Juan Correa</div>
+		<div id="login_btns">
+			<button id="sign_up_btn" type="button" class="btn">Sign Up</button>
+			<button id="sign_in_btn" type="button" class="btn">Login</button>
+		</div>
 
-<script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script type="text/javascript" src="./assets/javascript/main.js"></script>
-</body>
-</html>
+		<script
+		src="https://code.jquery.com/jquery-3.2.1.min.js"    
+		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		crossorigin="anonymous"></script>  
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+		<script type="text/javascript" src="./assets/javascript/main.js"></script>
+		<script type="text/javascript" src="./assets/javascript/login.js"></script>
+	</body>
+	</html>
