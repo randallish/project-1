@@ -22,7 +22,7 @@
 
     <div id="yelp-images"></div>
 
-    <div class="container">
+    <div class="container" id="search">
       <div class="row">
         <div class="col-sm" id="box">
          <form id="search_bars">
@@ -34,7 +34,7 @@
             <div id="zomato-bar">
                 <input type="text" id="zomato-input" type="search" placeholder="search">
             </div>
-            <div id="search_bars">
+            <div id="search_buttons">
                 <div id="search-button">
                         <button id="search" class="btn waves-effect waves-light" type="submit" name="action">Find Recipes
                                 <i class="large material-icons right">local_dining</i>                </div>
@@ -58,18 +58,15 @@
                       </div>
 
         <div class="col-sm" id="box2">
-            <div id='recipe'></div>
-
             <div id="images-recipe">
-             RECIPE IMAGE HERE
          </div>
-
+            </ul>
          <div id="ingredients">
             <ul>ingredients</ul>
         </div>
     </div>
 <!-- collapsible -->
-        <div id="zomato">
+        <div>
             <ul class="collapsible" data-collapsible="accordion">
               <li>
                 <div class="collapsible-header"><i class="material-icons"></i>Option #1</div>
@@ -83,13 +80,14 @@
                 <div class="collapsible-header"><i class="material-icons"></i>Option #3</div>
                 <div class="collapsible-body" id="option3"><span></span></div>
               </li>
-        </ul>
+            </ul>
         </div>
 </div>
 </div>
 
 
 <div class="fixed-bottom"></div>
+<div class="fixed-bottom" id="footer">Copyright © Nick Weber, Randall Ishino, David Kim, Juan Correa</div>
 
 <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"

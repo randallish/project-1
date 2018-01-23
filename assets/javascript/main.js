@@ -25,7 +25,6 @@ var config = {
   var userPassword = "";
   var confirmPassword = "";
 
-
   // sign up function for firebase authentication
   $("#sign_up_btn2").on("click",function(event){
     event.preventDefault();
@@ -120,20 +119,18 @@ function userValidation() {
     };
     };
 
-
+// on click function
 $("#search").on("click",function(event) {
     event.preventDefault();
     // storing the search input
     search = $("#search-input").val().trim();
-
     // resetting input to blank value
     $("#search-input").val('');
 
     // calling ajax
     getRecipe();
+    // removing element from array after its searched
 });
-
-
 
 
 function getRecipe() {
@@ -147,12 +144,12 @@ function getRecipe() {
           var recipe = response.recipes;
           var randomRecipe = recipe[Math.floor(Math.random() * recipe.length)];
           console.log(randomRecipe)
-          var recipeFrame1 = $("<iframe>").attr("src", response.recipes[1].source_url);
+          var recipeFrame1 = $("<iframe>").attr("src", response.recipes[0].source_url);
           var recipeFrame2 = $("<iframe>").attr("src", response.recipes[1].source_url);
           var recipeFrame3 = $("<iframe>").attr("src", response.recipes[2].source_url);
-          $("#option1").append(recipeFrame1);
-          $("#option2").append(recipeFrame2);
-          $("#option3").append(recipeFrame3);
+          $("#option1").html(recipeFrame1);
+          $("#option2").html(recipeFrame2);
+          $("#option3").html(recipeFrame3);
           console.log(response);
           // }
       });
