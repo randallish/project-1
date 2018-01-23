@@ -120,20 +120,18 @@ function userValidation() {
     };
     };
 
-
+// on click function
 $("#search").on("click",function(event) {
     event.preventDefault();
     // storing the search input
     search = $("#search-input").val().trim();
-
     // resetting input to blank value
     $("#search-input").val('');
 
     // calling ajax
     getRecipe();
+    // removing element from array after its searched
 });
-
-
 
 
 function getRecipe() {
@@ -191,6 +189,3 @@ function hideButtons() {
     $("#search").hide();
     $("#search-input").hide();
 }
-
-
-   

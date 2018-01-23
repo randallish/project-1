@@ -61,7 +61,8 @@ body {
 	width: 40%;
 }
 #footer {
-	height:60px;
+	height:25px;
+	background: grey;
 }
 .fixed-bottom {
 	position: center;
