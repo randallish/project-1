@@ -12,9 +12,6 @@ var config = {
 
 // global variables
   var database = firebase.database();
-  var apiKey = "a5c09d2dbe71875e792a7dbe0771b30f&q=";
-  var queryURL = "http://food2fork.com/api/search?key=";
-  var count = "&count=30";
   var search = '';
   var zomatoSearch = '';
   var zomatoKey = "0773a4de72d921649a1fca4f24d04bce";
@@ -134,21 +131,23 @@ $("#search").on("click",function(event) {
 
 
 function getRecipe() {
-    var newURL = queryURL + apiKey + search + count;
-    console.log(newURL);
+    var foodURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?limitLicense=false&number=3&tags=" + search;
+
+    console.log(foodURL);
     $.ajax({
-        url:newURL,
+        url:foodURL,
         method: "GET",
-        dataType: "json"
+        dataType: "json",
+        headers: {"X-Mashape-Key":"Dt9Xg2tPUSmsh9L4MxBy6vXKq18Zp1Eb87fjsnLLIYrk0DnUBv"}
       })
       .done(function(response) {
-          console.log(response);
-          var recipe = response.recipes;
-          var randomRecipe = recipe[Math.floor(Math.random() * recipe.length)];
-          console.log(randomRecipe);
-          var recipeFrame1 = $("<iframe>").attr("src", response.recipes[1].source_url);
-          var recipeFrame2 = $("<iframe>").attr("src", response.recipes[2].source_url);
-          var recipeFrame3 = $("<iframe>").attr("src", response.recipes[3].source_url);
+        //   var recipe = response.recipes;
+        //   var randomRecipe = recipe[Math.floor(Math.random() * recipe.length)];
+        //   console.log(randomRecipe);
+    
+          var recipeFrame1 = $("<iframe>").attr("src", response.recipes[0].spoonacularSourceUrl);
+          var recipeFrame2 = $("<iframe>").attr("src", response.recipes[1].spoonacularSourceUrl);
+          var recipeFrame3 = $("<iframe>").attr("src", response.recipes[2].spoonacularSourceUrl);
           $("#option1").html(recipeFrame1);
           $("#option2").html(recipeFrame2);
           $("#option3").html(recipeFrame3);
@@ -173,11 +172,11 @@ function getZomato() {
         url:zomatoURL,
         method: "GET",
         dataType: "json",
-        headers: {"user-key": zomatoKey},
+        headers: {"user-key": zomatoKey}
     })
     .done(function(response){
         console.log(response);
-        console.log(zomatoURL);
+        // console.log(zomatoURL);
         for (i=0; i<7; i++) {
         // code under this comment will make thumnails appear, but most restaurants do not have images.
         // $('#zomatolist').append("<img src=" + response.restaurants[i].restaurant.thumb + "></img>");
