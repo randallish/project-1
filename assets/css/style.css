@@ -11,7 +11,7 @@ body {
 #search-bar {
 	margin-left: 50px;
 }
-#search-input { 
+#search-input {
     background-color: white;
     margin-bottom: 50px;
 }
@@ -109,4 +109,7 @@ body {
 	font-weight: bold;
 	color: white;
 }
-
+iframe {
+	width: 800px;
+	height: 800px;
+}
