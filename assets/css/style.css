@@ -8,32 +8,12 @@
 body {
 	background: white;
 }
-#dropdown_menu {
-	margin-top: 50px;
-}
-.results {
-	height: 500px;
-}
-#search_bars {
-	width: 50%;
-
-}
-#search_buttons {
-	width: 50%;
-}
-#image-result {
-	height: 200px;
-	width: 200px;
+#search-bar {
+	margin-left: 50px;
 }
 #search-input { 
     background-color: white;
     margin-bottom: 50px;
-}
-#search-bar {
-	width: 35%;
-}
-#zomato-bar {
-	width: 35%;
 }
 
 #search-button {
@@ -130,6 +110,4 @@ body {
 	font-weight: bold;
 	color: white;
 }
-#signout-button {
-	margin-top: 30px;
-}
+
