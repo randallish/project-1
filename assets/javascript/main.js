@@ -25,6 +25,7 @@ var config = {
   var userPassword = "";
   var confirmPassword = "";
 
+  $("#dropdown_menu").hide();
 
   // sign up function for firebase authentication
   $("#sign_up_btn2").on("click",function(event){
@@ -122,6 +123,9 @@ function userValidation() {
 
 // on click function
 $("#search").on("click",function(event) {
+  
+  $("#dropdown_menu").show();
+
     event.preventDefault();
     // storing the search input
     search = $("#search-input").val().trim();
@@ -148,7 +152,7 @@ function getRecipe() {
           for (i=0; i<3; i++) {
               var recipeTitle = $("<h1>").text(response.recipes[i].title);
               var recipeLink = $("<a>").attr("href", response.recipes[i].f2f_url).append(recipeTitle);
-              var recipeImage = $("<img>").attr("src", response.recipes[i].image_url);
+              var recipeImage = $("<img>").attr("src", response.recipes[i].image_url).addClass("image_result");
               var ingredients = $("<ol>").text(response.recipes[i].ingredients);
               var recipeFrame = $("<iframe>").attr("src", response.recipes[i].source_url);
               $("#recipe").append(recipeTitle, recipeLink, recipeImage, ingredients, recipeFrame);
