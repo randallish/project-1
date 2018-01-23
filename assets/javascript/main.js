@@ -149,9 +149,9 @@ function getRecipe() {
           var recipeFrame1 = $("<iframe>").attr("src", response.recipes[1].source_url);
           var recipeFrame2 = $("<iframe>").attr("src", response.recipes[2].source_url);
           var recipeFrame3 = $("<iframe>").attr("src", response.recipes[3].source_url);
-          $("#option1").append(recipeFrame1);
-          $("#option2").append(recipeFrame2);
-          $("#option3").append(recipeFrame3);
+          $("#option1").html(recipeFrame1);
+          $("#option2").html(recipeFrame2);
+          $("#option3").html(recipeFrame3);
       });
     };
 
