@@ -16,11 +16,13 @@ body {
     background-color: white;
 	width: 350px;
 	margin-left: 20%;
+	margin-bottom: 20px;
 }
 #zomato-input {
 	background-color: white;
 	width: 350px;
 	margin-left: 20%;
+	margin-bottom: 40px;
 }
 h1 {
 	margin-left: 20%;
@@ -144,6 +146,8 @@ iframe {
 	text-align: center;
 	background: #ED1C24;
 	color: white;
+	font-family: 'Indie Flower', cursive;
+	font-size: larger;
 }
 #welcome {
 	font-size: 40px;
@@ -161,4 +165,12 @@ iframe {
 	font-family: 'Indie Flower', cursive;
 	font-size: 30px;
 	margin-left: 50px;
+}
+#home-2 {
+	height: 130%;
+}
+.font {
+	font-family: 'Indie Flower', cursive;
+	font-weight: bold;
+	margin-bottom: 40px;
 }
