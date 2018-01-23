@@ -40,7 +40,7 @@ var config = {
       var errorMessage = error.message;
       console.log("Error Message: " + errorMessage);
       console.log("Error code: " + errorCode);
-    
+
       // calling for password/email validation
       userValidation();
 
@@ -48,7 +48,7 @@ var config = {
 });
 
 
-$("#login_btn2").on("click",function(event){ 
+$("#login_btn2").on("click",function(event){
     event.preventDefault();
     userEmail = $("#input_email").val().trim();
     userPassword = $("#input_password").val().trim();
@@ -145,6 +145,7 @@ function getRecipe() {
           var randomRecipe = recipe[Math.floor(Math.random() * recipe.length)];
           console.log(randomRecipe)
 <<<<<<< HEAD
+<<<<<<< HEAD
           var recipeFrame1 = $("<iframe>").attr("src", response.recipes[0].source_url);
           var recipeFrame2 = $("<iframe>").attr("src", response.recipes[1].source_url);
           var recipeFrame3 = $("<iframe>").attr("src", response.recipes[2].source_url);
@@ -164,6 +165,16 @@ function getRecipe() {
               console.log(response);
           }
 >>>>>>> parent of 793b350... create dropdown menu
+=======
+          var recipeFrame1 = $("<iframe>").attr("src", response.recipes[1].source_url);
+          var recipeFrame2 = $("<iframe>").attr("src", response.recipes[1].source_url);
+          var recipeFrame3 = $("<iframe>").attr("src", response.recipes[2].source_url);
+          $("#option1").append(recipeFrame1);
+          $("#option2").append(recipeFrame2);
+          $("#option3").append(recipeFrame3);
+          console.log(response);
+          // }
+>>>>>>> 793b350... create dropdown menu
       });
     };
 
@@ -190,6 +201,11 @@ function getZomato() {
     .done(function(response){
         console.log(response);
         console.log(zomatoURL);
+        $("#zomato").prepend(response.restaurants[0].restaurant.name);
+        $('#zomatopic').attr("src", response.restaurants[0].restaurant.photos_url);
+        $('#zomatolocation').prepend(response.restaurants[0].restaurant.location.address + "<br>");
+        $('#zomatolocation').append(response.restaurants[0].restaurant.location.city + "<br>");
+        $('#zomatolocation').append(response.restaurants[0].restaurant.location.zipcode);
     });
 };
 
@@ -199,6 +215,3 @@ function hideButtons() {
     $("#search").hide();
     $("#search-input").hide();
 }
-
-
-   
