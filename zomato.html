@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -60,3 +61,76 @@
     <script type="text/javascript" src="./assets/javascript/main.js"></script>
 </body>
 </html>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Food</title>
+  <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css/style.css"> 
+</head>
+<body>
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Feeling Lazy</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Feeling Adventurous</a>
+    </li>
+  </ul>
+  <div id="logofood2fork">
+    <img id="logofood" src="assets/images/foodiciouslogo.png">
+  </div>
+  <div class="parallax-container">
+    <center>
+     <div class="parallax"><img id="imagepara" id="rest_image" src="./assets/images/rest_img.jpg"></div>
+   </div>
+   <div class="section white">
+     <div class="row container">
+       <h1>Search a Type of Food for Restaurant Results</h1>
+       <div id="search-bar">
+         <input type="text" id="search-input" type="search" placeholder="search">
+       </div>
+       <div id="search-button">
+         <button id="search" class="btn waves-effect waves-light" type="submit" name="action">Find Restuarants
+         </div>
+         <div id="zomato">
+           <ul id="collapse" class="collapsible" data-collapsible="accordion">
+             <li>
+               <div class="collapsible-header"><i class="material-icons"></i>Option #1</div>
+               <div class="collapsible-body" id="option1"><span></span></div>
+             </li>
+             <li>
+               <div class="collapsible-header"><i class="material-icons"></i>Option #2</div>
+               <div class="collapsible-body" id="option2"><span></span></div>
+             </li>
+             <li>
+               <div class="collapsible-header"><i class="material-icons"></i>Option #3</div>
+               <div class="collapsible-body" id="option3"><span></span></div>
+             </li>
+           </ul>
+         </div>
+       </div>
+     </div>
+     <div class="parallax-container">
+       <div class="parallax"><img src="https://www.wallpaperup.com/uploads/wallpapers/2015/07/24/761338/cd137eb016900a29af183ee99e64c3ac-1000.jpg"></div>
+     </center>
+   </div>
+
+   <div class="fixed-bottom"></div>
+   <div class="fixed-bottom" id="footer">Copyright © Nick Weber, Randall Ishino, David Kim, Juan Correa</div>
+
+   <script
+   src="https://code.jquery.com/jquery-3.2.1.min.js"
+   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+   crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+   <script type="text/javascript" src="./assets/javascript/main.js"></script>
+ </body>
+ </html>
