@@ -9,7 +9,10 @@ body {
 	background: white;
 }
 #search-bar {
-	margin-left: 50px;
+	width: 35%;
+}
+#zomato-bar {
+	width: 35%;
 }
 #search-input {
     background-color: white;
@@ -19,11 +22,18 @@ body {
 #search-button {
     margin-top:50px;
 }
+#search-container {
+	margin: 0 auto;
+
+}
 
 .search_label {
 	font-size: 20px;
 	margin-left: 50px;
 
+}
+#box {
+	margin: 0 auto;
 }
 #search {
 	margin-left: 150px;
@@ -62,7 +72,8 @@ body {
 }
 #footer {
 	height:25px;
-	background: grey;
+	background: #ED1C24;
+	color: white;
 }
 .fixed-bottom {
 	position: center;
@@ -113,4 +124,8 @@ body {
 iframe {
 	width: 800px;
 	height: 800px;
+}
+#signout-button {
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
