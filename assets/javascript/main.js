@@ -1,4 +1,3 @@
-console.log('linked');
 // initialize firebase
 var config = {
   apiKey: "AIzaSyAbveEsJJYzFrleIyMUl-hV9ilXMpuYurg",
@@ -179,11 +178,11 @@ function getZomato() {
     .done(function(response){
         console.log(response);
         console.log(zomatoURL);
-        $("#zomato").prepend(response.restaurants[0].restaurant.name);
-        $('#zomatopic').attr("src", response.restaurants[0].restaurant.photos_url);
-        $('#zomatolocation').prepend(response.restaurants[0].restaurant.location.address + "<br>");
-        $('#zomatolocation').append(response.restaurants[0].restaurant.location.city + "<br>");
-        $('#zomatolocation').append(response.restaurants[0].restaurant.location.zipcode);
+        $('#zomatolist').attr("src", response.restaurants[0].restaurant.photos_url);
+        $('#zomatolist').prepend(response.restaurants[0].restaurant.location.address + "<br>");
+        $('#zomatolist').append(response.restaurants[0].restaurant.location.city + "<br>");
+        $('#zomatolist').append(response.restaurants[0].restaurant.location.zipcode);
+        $("#zomatolist").prepend(response.restaurants[0].restaurant.name + "<br>");
     });
 };
 
