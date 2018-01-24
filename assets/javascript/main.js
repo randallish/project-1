@@ -52,30 +52,39 @@ $("#login_btn2").on("click",function(event){
     event.preventDefault();
     userEmail = $("#input_email").val().trim();
     userPassword = $("#input_password").val().trim();
-    if (userValidation()==true) {
     var auth = firebase.auth();
     // signing in a registered user
     auth.signInWithEmailAndPassword(userEmail, userPassword).catch(function(error){
         var errorCode = error.code;
         var errorMessage = error.message;
         console.log("Problem: " + errorCode + " Message: " +errorMessage);
+        userValidation();
 	}).then(function(success){
         console.log("Logged In Success" + userEmail);
-
         window.location.href="./home.html";
 
     });
-}
 });
 
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user != null) {
+    email= user.email;
+    console.log(email);
+    };
+
+});
+
+
+
 // signing out a user
-$("#signout-button").on("click",function() {
+$("#logout").on("click",function() {
 
     // confirming signout with a modal
     $("#modal1").modal();
 
-    firebase.auth().signOut().then(function() {
-        console.log('Signed Out');
+    firebase.auth().signOut().then(function(success) {
+        console.log('Signed Out', success);
       }, function(error) {
         console.error('Sign Out Error', error);
       });
