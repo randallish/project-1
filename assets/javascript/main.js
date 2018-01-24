@@ -175,7 +175,7 @@ function getZomato() {
         $('#zomatolist').append(response.restaurants[i].restaurant.location.city + "<br>");
         $('#zomatolist').append(response.restaurants[i].restaurant.location.zipcode + "<br>");
         // creating a button to link to menu of restauant.
-        $('#zomatolist').append('<input type="button" class="menubuttons" value="View Menu" src='+ response.restaurants[i].restaurant.menu_url +'>' + "<hr>");
+        // $('#zomatolist').append('<input type="button" class="menubuttons" value="View Menu" src='+ response.restaurants[i].restaurant.menu_url +'>' + "<hr>");
         }
     });
 };
