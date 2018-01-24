@@ -71,8 +71,11 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user != null) {
     email= user.email;
     console.log(email);
-    };
-
+    $("#user-name").html(email).css("color", "red");
+}
+else {
+    $("#user-name").hide();
+}
 });
 
 
