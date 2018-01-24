@@ -52,6 +52,8 @@ $("#login_btn2").on("click",function(event){
     event.preventDefault();
     userEmail = $("#input_email").val().trim();
     userPassword = $("#input_password").val().trim();
+    if (userValidation()==true) {
+
     var auth = firebase.auth();
     // signing in a registered user
     auth.signInWithEmailAndPassword(userEmail, userPassword).catch(function(error){
@@ -62,8 +64,8 @@ $("#login_btn2").on("click",function(event){
 	}).then(function(success){
         console.log("Logged In Success" + userEmail);
         window.location.href="./home.html";
-
-    });
+    })
+}
 });
 
 
@@ -71,6 +73,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user != null) {
     email= user.email;
     console.log(email);
+    $("#user-name").html(email).css("color", "red");
     };
 
 });
