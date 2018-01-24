@@ -36,11 +36,12 @@ var config = {
       var errorMessage = error.message;
       console.log("Error Message: " + errorMessage);
       console.log("Error code: " + errorCode);
-
-      // calling for password/email validation
       userValidation();
-
-    })
+    }).then(function(success) {
+      // calling for password/email validation
+      console.log("You logged in",success);
+      window.location.href="./home.html";
+    });
 });
 //parallax
 $('.parallax').parallax();
@@ -63,7 +64,7 @@ $("#login_btn2").on("click",function(event){
 });
 
 // signing out a user
-$("#signout-button").on("click",function() {
+$("#logout").on("click",function() {
 
     // confirming signout with a modal
     $("#modal1").modal();
