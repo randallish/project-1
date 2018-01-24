@@ -135,6 +135,9 @@ iframe {
 	height: 800px;
 	width: 800px;
 }
+#imgpara {
+
+}
 .parallax-container {
   	height: 400px;
 }
@@ -178,4 +181,7 @@ iframe {
 	font-family: 'Indie Flower', cursive;
 	font-weight: bold;
 	margin-bottom: 40px;
+}
+#zomatolist {
+	padding-top: 5%;
 }
