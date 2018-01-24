@@ -187,3 +187,9 @@ iframe {
 	padding-top: 5%;
 	padding-left: 20%;
 }
+#user-name {
+	margin-left: 50px;
+	font-family: 'Indie Flower', cursive;
+	font-size: x-large;
+
+}
