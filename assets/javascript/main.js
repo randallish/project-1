@@ -61,9 +61,9 @@ $("#login_btn2").on("click",function(event){
         console.log("Problem: " + errorCode + " Message: " +errorMessage);
 	}).then(function(success){
         console.log("Logged In Success" + userEmail);
-        
+
         window.location.href="./home.html";
-   
+
     });
 }
 });
