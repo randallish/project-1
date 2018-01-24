@@ -8,6 +8,11 @@
 body {
 	background: white;
 }
+#zomato {
+	font-family: 'Indie Flower', cursive;
+	font-size: x-large;
+	font-weight: bold;
+}
 
 #search-bar {
 	margin-left: 50px;
