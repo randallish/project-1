@@ -135,7 +135,7 @@ function getRecipe() {
         //   var recipe = response.recipes;
         //   var randomRecipe = recipe[Math.floor(Math.random() * recipe.length)];
         //   console.log(randomRecipe);
-    
+
           var recipeFrame1 = $("<iframe>").attr("src", response.recipes[0].spoonacularSourceUrl);
           var recipeFrame2 = $("<iframe>").attr("src", response.recipes[1].spoonacularSourceUrl);
           var recipeFrame3 = $("<iframe>").attr("src", response.recipes[2].spoonacularSourceUrl);
@@ -152,7 +152,6 @@ $("#zomato-search").on("click",function(event) {
     zomatoSearch = $("#zomato-input").val().trim();
     getZomato();
     $("#zomato-input").val('');
-    hideButtons();
 });
 
 
@@ -174,10 +173,9 @@ function getZomato() {
         $("#zomatolist").append(response.restaurants[i].restaurant.name + "<br>");
         $('#zomatolist').append(response.restaurants[i].restaurant.location.address + "<br>");
         $('#zomatolist').append(response.restaurants[i].restaurant.location.city + "<br>");
-        $('#zomatolist').append(response.restaurants[i].restaurant.location.zipcode + "<hr>");
+        $('#zomatolist').append(response.restaurants[i].restaurant.location.zipcode + "<br>");
         // creating a button to link to menu of restauant.
-        $('#zomatolist').append("<button>" + response.restaurants[i].restaurant.menu_url + "</button>");
-
+        $('#zomatolist').append('<input type="button" class="menubuttons" value="View Menu" src='+ response.restaurants[i].restaurant.menu_url +'>' + "<hr>");
         }
     });
 };
