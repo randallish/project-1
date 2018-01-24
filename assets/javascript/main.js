@@ -42,7 +42,7 @@ var config = {
 
     })
 });
-//paralax
+//parallax
 $('.parallax').parallax();
 
 $("#login_btn2").on("click",function(event){
@@ -59,16 +59,7 @@ $("#login_btn2").on("click",function(event){
 	}).then(function(success){
         console.log("Logged In", success);
         userValidation();
-
-        if (userEmail){
-        window.location.href="./index.html";
-        }
-        else {
-            return false;
-        }
     });
-    $("#user-name").append(userEmail);
-
 });
 
 // signing out a user
@@ -126,7 +117,7 @@ $("#search").on("click",function(event) {
 
     // calling ajax
     getRecipe();
-    // removing element from array after its searched
+    // getVideo();
 });
 
 
@@ -190,6 +181,26 @@ function getZomato() {
         }
     });
 };
+
+
+
+// function getVideo() {
+//     var videoURL="https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/videos/search?query=" + search;
+//     $.ajax({
+//         url:videoURL,
+//         method: "GET",
+//         dataType: "json",
+//         headers: {"X-Mashape-Key":"Dt9Xg2tPUSmsh9L4MxBy6vXKq18Zp1Eb87fjsnLLIYrk0DnUBv"}
+//     })
+//     .done(function(response) {
+//         console.log(response.videos);
+//         var youtube = "https://www.youtube.com/embed/" + response.videos[4].youTubeId;
+//         console.log(youtube);
+//         var video1 = $("<iframe>").attr("src", youtube);
+//         $("#video").append(video1);
+//     });
+
+// };
 
 function hideButtons() {
     $("#zomato-search").hide();
