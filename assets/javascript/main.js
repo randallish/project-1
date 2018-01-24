@@ -27,6 +27,7 @@ var config = {
     userEmail = $("#input_email").val().trim();
     userPassword = $("#input_password").val().trim();
     confirmPassword = $("#confirm_password").val().trim();
+    userValidation();
     var auth = firebase.auth();
 
     // creating a new user with firebase method
@@ -38,9 +39,10 @@ var config = {
       console.log("Error code: " + errorCode);
 
       // calling for password/email validation
-      userValidation();
+      }).then(function(success){
       window.location.href= "./home.html";
-    })
+      console.log("woohoo");
+    });
 });
 //parallax
 $('.parallax').parallax();
@@ -49,7 +51,7 @@ $("#login_btn2").on("click",function(event){
     event.preventDefault();
     userEmail = $("#input_email").val().trim();
     userPassword = $("#input_password").val().trim();
-
+    userValidation();
     var auth = firebase.auth();
     // signing in a registered user
     auth.signInWithEmailAndPassword(userEmail, userPassword).catch(function(error){
@@ -57,8 +59,8 @@ $("#login_btn2").on("click",function(event){
         var errorMessage = error.message;
         console.log("Problem: " + errorCode + " Message: " +errorMessage);
 	}).then(function(success){
-        console.log("Logged In", success);
-        userValidation();
+        console.log("Logged In Success" + userEmail);
+        
         window.location.href="./home.html";
     });
 });
@@ -86,10 +88,20 @@ function userValidation() {
         $("#input_password").focus();
         return false;
     }
+    if (userPassword.text == "") {
+       $("#password-warning").text("Must Fill In Field").css("color", "red");
+        $("#input_password").focus();
+        return false;
+    }
     if(userPassword != confirmPassword) {
         $("#confirm-warning").text("Passwords do not match. Try again").css("color","red");
         $("#confirm_password").focus();
         $("#password-warning").hide();
+        return false;
+    }
+     if (userEmail.text == "") {
+       $("#password-warning").text("Must Fill In Field").css("color", "red");
+        $("#input_password").focus();
         return false;
     }
     if (confirmPassword.length == 0) {
