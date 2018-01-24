@@ -173,7 +173,7 @@ function getZomato() {
         $("#zomatolist").append(response.restaurants[i].restaurant.name + "<br>");
         $('#zomatolist').append(response.restaurants[i].restaurant.location.address + "<br>");
         $('#zomatolist').append(response.restaurants[i].restaurant.location.city + "<br>");
-        $('#zomatolist').append(response.restaurants[i].restaurant.location.zipcode + "<br>");
+        $('#zomatolist').append(response.restaurants[i].restaurant.location.zipcode + "<br><hr>");
         // creating a button to link to menu of restauant.
         // $('#zomatolist').append('<input type="button" class="menubuttons" value="View Menu" src='+ response.restaurants[i].restaurant.menu_url +'>' + "<hr>");
         }
