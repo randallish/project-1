@@ -168,14 +168,8 @@ function getZomato() {
         console.log(response);
         // console.log(zomatoURL);
         for (i=0; i<7; i++) {
-        // code under this comment will make thumnails appear, but most restaurants do not have images.
-        // $('#zomatolist').append("<img src=" + response.restaurants[i].restaurant.thumb + "></img>");
         $("#zomatolist").append(response.restaurants[i].restaurant.name + "<br>");
-        $('#zomatolist').append(response.restaurants[i].restaurant.location.address + "<br>");
-        $('#zomatolist').append(response.restaurants[i].restaurant.location.city + "<br>");
-        $('#zomatolist').append(response.restaurants[i].restaurant.location.zipcode + "<br><hr>");
-        // creating a button to link to menu of restauant.
-        // $('#zomatolist').append('<input type="button" class="menubuttons" value="View Menu" src='+ response.restaurants[i].restaurant.menu_url +'>' + "<hr>");
+        $('#zomatolist').append(response.restaurants[i].restaurant.location.address + "<br><hr>");
         }
     });
 };
