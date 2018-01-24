@@ -57,13 +57,12 @@ $("#login_btn2").on("click",function(event){
     auth.signInWithEmailAndPassword(userEmail, userPassword).catch(function(error){
         var errorCode = error.code;
         var errorMessage = error.message;
-        console.log("Problem: " + errorCode + " Message: " +errorMessage);
         userValidation();
+        console.log("Problem: " + errorCode + " Message: " +errorMessage);
 	}).then(function(success){
         console.log("Logged In Success" + userEmail);
         window.location.href="./home.html";
-
-    });
+    })
 });
 
 
@@ -71,7 +70,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user != null) {
     email= user.email;
     console.log(email);
-    $("#user-name").html(email).css("color", "red");
+    $("#user-name").html("Logged in as : " + email).css("color", "red");
 }
 else {
     $("#user-name").hide();
