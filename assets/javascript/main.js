@@ -57,9 +57,10 @@ $("#login_btn2").on("click",function(event){
         var errorCode = error.code;
         var errorMessage = error.message;
         console.log("Problem: " + errorCode + " Message: " +errorMessage);
+        userValidation();
 	}).then(function(success){
         console.log("Logged In", success);
-        userValidation();
+        window.location.href="./home.html";
     });
 });
 
