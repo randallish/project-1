@@ -27,7 +27,7 @@ var config = {
     userEmail = $("#input_email").val().trim();
     userPassword = $("#input_password").val().trim();
     confirmPassword = $("#confirm_password").val().trim();
-    userValidation();
+    if (userValidation()==true) {
     var auth = firebase.auth();
 
     // creating a new user with firebase method
@@ -43,6 +43,7 @@ var config = {
       window.location.href= "./home.html";
       console.log("woohoo");
     });
+    }
 });
 //parallax
 $('.parallax').parallax();
@@ -51,7 +52,7 @@ $("#login_btn2").on("click",function(event){
     event.preventDefault();
     userEmail = $("#input_email").val().trim();
     userPassword = $("#input_password").val().trim();
-    userValidation();
+    if (userValidation()==true) {
     var auth = firebase.auth();
     // signing in a registered user
     auth.signInWithEmailAndPassword(userEmail, userPassword).catch(function(error){
@@ -62,7 +63,9 @@ $("#login_btn2").on("click",function(event){
         console.log("Logged In Success" + userEmail);
         
         window.location.href="./home.html";
+   
     });
+}
 });
 
 // signing out a user
