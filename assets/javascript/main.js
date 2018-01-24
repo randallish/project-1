@@ -39,7 +39,7 @@ var config = {
 
       // calling for password/email validation
       userValidation();
-
+      window.location.href= "./home.html";
     })
 });
 //parallax
@@ -59,6 +59,7 @@ $("#login_btn2").on("click",function(event){
 	}).then(function(success){
         console.log("Logged In", success);
         userValidation();
+        window.location.href="./home.html";
     });
 });
 
@@ -102,7 +103,6 @@ function userValidation() {
         return false;
     }
     else{
-        window.location.href= './index.html';
         return true;
     };
     };
