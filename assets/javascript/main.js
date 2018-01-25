@@ -10,8 +10,11 @@ var config = {
   firebase.initializeApp(config);
 
 
-// global variables
+
+// not currently using, but for future advancements to store data
   var database = firebase.database();
+
+  // global variables
   var search = '';
   var zomatoSearch = '';
   var zomatoKey = "0773a4de72d921649a1fca4f24d04bce";
@@ -48,9 +51,11 @@ var config = {
     });
     }
 });
-//parallax
+//materialize images
 $('.parallax').parallax();
 
+
+// signing up a new user
 $("#login_btn2").on("click",function(event){
     event.preventDefault();
     userEmail = $("#input_email").val().trim();
@@ -63,7 +68,7 @@ $("#login_btn2").on("click",function(event){
         userValidation();
         console.log("Problem: " + errorCode + " Message: " +errorMessage);
 	}).then(function(success){
-        console.log("Logged In Success" + userEmail);
+        console.log("Logged In Success: " + userEmail);
         window.location.href="./home.html";
     });
 });
@@ -189,11 +194,15 @@ function getRandomFact() {
 // calling our function and materialize
 $("#menu").on("click",function(){
     getRandomFact();
+
+    // emptying facts on each click
     $("#random-facts").empty();
+
+    // materialize target
     $('.tap-target').tapTarget('open');
 });
 
-
+// 
 $("#zomato-search").on("click",function(event) {
     event.preventDefault();
     zomatoSearch = $("#zomato-input").val().trim();
@@ -202,7 +211,7 @@ $("#zomato-search").on("click",function(event) {
 });
 
 
-
+// returns restaurants nearby
 function getZomato() {
     var zomatoURL = "https://developers.zomato.com/api/v2.1/search?q=" + zomatoSearch;
     $.ajax({
