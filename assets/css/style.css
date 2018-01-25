@@ -99,11 +99,13 @@ h1 {
 	margin-right: 40px;
 	font-weight: bold;
 	color: white;
+	margin-top: 50px;
 }
 #sign_in_btn {
 	background: #ED1C24;
 	font-weight: bold;
 	color: white;
+	margin-top: 50px;
 }
 .login_form {
 	margin: auto;

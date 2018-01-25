@@ -133,7 +133,7 @@ function userValidation() {
     };
     };
 
-// on click function
+// on click for searching a recipe
 $("#search").on("click",function(event) {
     event.preventDefault();
     // storing the search input
@@ -145,7 +145,7 @@ $("#search").on("click",function(event) {
     getRecipe();
 });
 
-
+// ajax for getting a random recipe
 function getRecipe() {
     var foodURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?limitLicense=false&number=3&tags=" + search;
 
@@ -161,6 +161,7 @@ function getRecipe() {
         //   var randomRecipe = recipe[Math.floor(Math.random() * recipe.length)];
         //   console.log(randomRecipe);
 
+        // appending to iframe
           var recipeFrame1 = $("<iframe>").attr("src", response.recipes[0].spoonacularSourceUrl);
           var recipeFrame2 = $("<iframe>").attr("src", response.recipes[1].spoonacularSourceUrl);
           var recipeFrame3 = $("<iframe>").attr("src", response.recipes[2].spoonacularSourceUrl);
@@ -170,6 +171,7 @@ function getRecipe() {
       });
     };
 
+    // getting a random food fact
 function getRandomFact() {
     var factsURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/trivia/random";
     $.ajax({
@@ -184,6 +186,7 @@ function getRandomFact() {
       });
 };
 
+// calling our function and materialize
 $("#menu").on("click",function(){
     getRandomFact();
     $("#random-facts").empty();
