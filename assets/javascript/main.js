@@ -27,18 +27,21 @@ var config = {
     userEmail = $("#input_email").val().trim();
     userPassword = $("#input_password").val().trim();
     confirmPassword = $("#confirm_password").val().trim();
-    if (userValidation()==true) {
     var auth = firebase.auth();
+
+    // if it passes all conditionals
+    if (userValidation()==true) {
 
     // creating a new user with firebase method
     auth.createUserWithEmailAndPassword(userEmail, userPassword).catch(function(error) {
-        // handling of any errors being processed
+       
+     // handling of any errors being processed
       var errorCode  = error.code;
       var errorMessage = error.message;
       console.log("Error Message: " + errorMessage);
       console.log("Error code: " + errorCode);
 
-      // calling for password/email validation
+      // user is created and taken to home page
       }).then(function(success){
       window.location.href= "./home.html";
       console.log("woohoo");
@@ -65,12 +68,13 @@ $("#login_btn2").on("click",function(event){
     })
 });
 
-
+// checking state if a user is signed in or not
 firebase.auth().onAuthStateChanged(function(user) {
     if (user != null) {
+    // grabbing user name from the object
     email= user.email;
     console.log(email);
-    $("#user-name").html("Logged in as : " + email).css("color", "red");
+    $("#user-name").html(email).css("color", "red");
 }
 else {
     $("#user-name").hide();
@@ -81,10 +85,6 @@ else {
 
 // signing out a user
 $("#logout").on("click",function() {
-
-    // confirming signout with a modal
-    $("#modal1").modal();
-
     firebase.auth().signOut().then(function(success) {
         console.log('Signed Out', success);
       }, function(error) {
@@ -143,7 +143,6 @@ $("#search").on("click",function(event) {
 
     // calling ajax
     getRecipe();
-    // getVideo();
 });
 
 
@@ -171,6 +170,25 @@ function getRecipe() {
       });
     };
 
+function getRandomFact() {
+    var factsURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/trivia/random";
+    $.ajax({
+        url:factsURL,
+        method: "GET",
+        dataType: "json",
+        headers: {"X-Mashape-Key":"Dt9Xg2tPUSmsh9L4MxBy6vXKq18Zp1Eb87fjsnLLIYrk0DnUBv"}
+      })
+      .done(function(facts) {
+          console.log(facts.text);
+          $("#random-facts").append(facts.text);
+      });
+};
+
+$("#menu").on("click",function(){
+    getRandomFact();
+    $("#random-facts").empty();
+    $('.tap-target').tapTarget('open');
+});
 
 
 $("#zomato-search").on("click",function(event) {
