@@ -65,7 +65,7 @@ $("#login_btn2").on("click",function(event){
 	}).then(function(success){
         console.log("Logged In Success" + userEmail);
         window.location.href="./home.html";
-    })
+    });
 });
 
 // checking state if a user is signed in or not
