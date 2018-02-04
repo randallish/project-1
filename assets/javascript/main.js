@@ -61,12 +61,15 @@ $("#login_btn2").on("click",function(event){
     userEmail = $("#input_email").val().trim();
     userPassword = $("#input_password").val().trim();
     var auth = firebase.auth();
+
     // signing in a registered user
     auth.signInWithEmailAndPassword(userEmail, userPassword).catch(function(error){
         var errorCode = error.code;
         var errorMessage = error.message;
         userValidation();
         console.log("Problem: " + errorCode + " Message: " +errorMessage);
+
+        // no errors, login success
 	}).then(function(success){
         console.log("Logged In Success: " + userEmail);
         window.location.href="./home.html";
@@ -76,6 +79,7 @@ $("#login_btn2").on("click",function(event){
 // checking state if a user is signed in or not
 firebase.auth().onAuthStateChanged(function(user) {
     if (user != null) {
+
     // grabbing user name from the object
     email= user.email;
     console.log(email);
@@ -141,8 +145,10 @@ function userValidation() {
 // on click for searching a recipe
 $("#search").on("click",function(event) {
     event.preventDefault();
+
     // storing the search input
     search = $("#search-input").val().trim();
+
     // resetting input to blank value
     $("#search-input").val('');
 
@@ -161,10 +167,8 @@ function getRecipe() {
         dataType: "json",
         headers: {"X-Mashape-Key":"Dt9Xg2tPUSmsh9L4MxBy6vXKq18Zp1Eb87fjsnLLIYrk0DnUBv"}
       })
+
       .done(function(response) {
-        //   var recipe = response.recipes;
-        //   var randomRecipe = recipe[Math.floor(Math.random() * recipe.length)];
-        //   console.log(randomRecipe);
 
         // appending to iframe
           var recipeFrame1 = $("<iframe>").attr("src", response.recipes[0].spoonacularSourceUrl);
@@ -230,25 +234,6 @@ function getZomato() {
     });
 };
 
-
-
-// function getVideo() {
-//     var videoURL="https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/videos/search?query=" + search;
-//     $.ajax({
-//         url:videoURL,
-//         method: "GET",
-//         dataType: "json",
-//         headers: {"X-Mashape-Key":"Dt9Xg2tPUSmsh9L4MxBy6vXKq18Zp1Eb87fjsnLLIYrk0DnUBv"}
-//     })
-//     .done(function(response) {
-//         console.log(response.videos);
-//         var youtube = "https://www.youtube.com/embed/" + response.videos[4].youTubeId;
-//         console.log(youtube);
-//         var video1 = $("<iframe>").attr("src", youtube);
-//         $("#video").append(video1);
-//     });
-
-// };
 
 function hideButtons() {
     $("#zomato-search").hide();
