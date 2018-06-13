@@ -17,8 +17,8 @@ var config = {
   // global variables
   var search = '';
   var zomatoSearch = '';
-  const zomatoKey = config.ZOMATO_KEY;
-  const spoonacularKey = config.SPOONACULAR_KEY;
+  const zomatoKey = "0773a4de72d921649a1fca4f24d04bce";
+  const spoonacularKey = "4V58ZHzallmshzBKDqwLrTwSJN69p1BRGe3jsn5TVaXIsmH2LL";
 
   // email/password variables
   var userEmail = "";
@@ -234,11 +234,3 @@ function getZomato() {
         }
     });
 };
-
-
-function hideButtons() {
-    $("#zomato-search").hide();
-    $("zomato-input").hide();
-    $("#search").hide();
-    $("#search-input").hide();
-}
