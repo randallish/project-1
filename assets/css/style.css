@@ -248,3 +248,37 @@ h5 {
 	font-size: 17px;
 	color:black;
 }
+
+
+@media screen and (min-width:375px) {
+	body {
+		width: 100%;
+		margin-bottom: -300px;
+	}
+
+	html {
+		width: 100%;
+	}
+
+	#nav {
+		width: 50%;
+		display:inline-block;
+		float:left;
+		margin-left: 20px;
+	}
+
+	#user-name {
+		margin-left: 200px;
+		font-size: 1rem;
+		margin-top: 0px;
+	}
+
+	#profile {
+		margin-left: 200px;
+	}
+
+	.parallax-container {
+		width: 125%;
+		height: 550px;
+	}
+}

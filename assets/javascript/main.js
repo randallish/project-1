@@ -1,13 +1,14 @@
 // initialize firebase
-var config = {
-  apiKey: "AIzaSyAbveEsJJYzFrleIyMUl-hV9ilXMpuYurg",
+var firebaseKey = config.FIREBASE_KEY;
+var firebaseConfig = {
+  apiKey: firebaseKey,
   authDomain: "food-project-1fdbb.firebaseapp.com",
   databaseURL: "https://food-project-1fdbb.firebaseio.com",
   projectId: "food-project-1fdbb",
   storageBucket: "food-project-1fdbb.appspot.com",
   messagingSenderId: "389102904783"
 };
-  firebase.initializeApp(config);
+  firebase.initializeApp(firebaseConfig);
 
 
 
@@ -17,7 +18,8 @@ var config = {
   // global variables
   var search = '';
   var zomatoSearch = '';
-  var zomatoKey = "0773a4de72d921649a1fca4f24d04bce";
+  const zomatoKey = config.ZOMATO_KEY;
+  const spoonacularKey = config.SPOONACULAR_KEY;
 
   // email/password variables
   var userEmail = "";
@@ -165,7 +167,7 @@ function getRecipe() {
         url:foodURL,
         method: "GET",
         dataType: "json",
-        headers: {"X-Mashape-Key":"Dt9Xg2tPUSmsh9L4MxBy6vXKq18Zp1Eb87fjsnLLIYrk0DnUBv"}
+        headers: {"X-Mashape-Key":spoonacularKey}
       })
 
       .done(function(response) {
@@ -187,7 +189,7 @@ function getRandomFact() {
         url:factsURL,
         method: "GET",
         dataType: "json",
-        headers: {"X-Mashape-Key":"Dt9Xg2tPUSmsh9L4MxBy6vXKq18Zp1Eb87fjsnLLIYrk0DnUBv"}
+        headers: {"X-Mashape-Key":spoonacularKey}
       })
       .done(function(facts) {
           console.log(facts.text);
