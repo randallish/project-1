@@ -1,14 +1,13 @@
 // initialize firebase
-var firebaseKey = config.FIREBASE_KEY;
-var firebaseConfig = {
-  apiKey: firebaseKey,
+var config = {
+  apiKey: "AIzaSyAbveEsJJYzFrleIyMUl-hV9ilXMpuYurg",
   authDomain: "food-project-1fdbb.firebaseapp.com",
   databaseURL: "https://food-project-1fdbb.firebaseio.com",
   projectId: "food-project-1fdbb",
   storageBucket: "food-project-1fdbb.appspot.com",
   messagingSenderId: "389102904783"
 };
-  firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(config);
 
 
 
